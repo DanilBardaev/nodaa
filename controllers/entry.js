@@ -5,5 +5,13 @@ const sql =
 db.run(sql);
 class Entry {
   constructor() {}
-  static create(postForm, cb) {}
+  static create(postForm, cb) {
+    const sql = "INSERT INTO entries (username, title, content) VALUES (?,?,?)";
+    db.run(sql, data.username, data.title, data.content);
+  }
+  static selectAll(cb) {
+    db.all("SELECT * FROM entries", cb);
+  }
 }
+
+module.exports = Entry;

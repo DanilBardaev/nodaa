@@ -9,9 +9,8 @@ const post = require("../controllers/post");
 const index = require("../controllers/index");
 
 router.get("/", entries.list);
-
-// router.post("/entry", entries.form);
-// router.post("/post", entries.post);
+router.get("/post", entries.form);
+router.post("/post", entries.submit);
 
 router.get("/register", register.form);
 router.post("/register", register.submit);
